@@ -3,7 +3,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 .kotlin
-
+*.class
+*.jar
+*.war
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
@@ -13,6 +15,17 @@ target/
 *.iws
 *.iml
 *.ipr
+
+### FRONTEND ###
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# LOGS
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 ### Eclipse ###
 .apt_generated
