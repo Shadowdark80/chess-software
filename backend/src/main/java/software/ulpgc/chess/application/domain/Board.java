@@ -33,16 +33,12 @@ public record Board(Map<Coordinates, Piece> pieces) {
             throw new IllegalStateException("Cannot make a move. No piece at origin: " + move.fromSquare());
         }
 
-        // 1. Create a mutable copy of the current state
         Map<Coordinates, Piece> newPieces = new HashMap<>(this.pieces);
 
-        // 2. Remove the piece from the origin square
         newPieces.remove(move.fromSquare());
 
-        // 3. Place the piece in the destination square (capturing any existing piece implicitly)
         newPieces.put(move.toSquare(), movingPiece);
 
-        // 4. Return a brand new immutable Board
         return new Board(newPieces);
     }
 }
