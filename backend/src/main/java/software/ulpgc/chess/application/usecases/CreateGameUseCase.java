@@ -6,10 +6,10 @@ import software.ulpgc.chess.application.ports.out.GameRepositoryPort;
 import java.util.UUID;
 
 public class CreateGameUseCase {
-    private final GameRepositoryPort gameRepositoryPort;
+    private final GameRepositoryPort gameRepository;
 
-    public CreateGameUseCase(GameRepositoryPort gameRepositoryPort){
-        this.gameRepositoryPort = gameRepositoryPort;
+    public CreateGameUseCase(GameRepositoryPort gameRepository){
+        this.gameRepository = gameRepository;
     }
 
     public Game execute(String creatorId, String creatorName) {
@@ -19,7 +19,7 @@ public class CreateGameUseCase {
 
         Game newGame = Game.createNew(roomId, creator);
 
-        gameRepositoryPort.save(newGame);
+        gameRepository.save(newGame);
 
         return newGame;
     }
